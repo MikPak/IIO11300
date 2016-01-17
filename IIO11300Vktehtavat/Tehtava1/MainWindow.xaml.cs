@@ -36,9 +36,20 @@ namespace Tehtava1
             //TODO
             try
             {
-                double result;
-                result = BusinessLogicWindow.CalculatePerimeter(1, 1);
-                //ei näin: BusinessLogicWindow.CalculatePerimeter(1, 1);
+                double width, height, karmi, areaWindow, karmiPerimeter, karmiArea;
+
+                width = System.Convert.ToDouble(txtWidht.Text); // Convert string to double
+                height = System.Convert.ToDouble(txtHeight.Text);
+                karmi = System.Convert.ToDouble(txtKarmiWidth.Text);
+
+                areaWindow = BusinessLogicWindow.CalculateArea(width, height); // Calculate area of the window
+                txtIkkunaPintaAla.Text = System.Convert.ToString(areaWindow); // Set value to textbox
+
+                karmiPerimeter = BusinessLogicWindow.CalculatePerimeter(width, height, karmi); // Calculate perimeter
+                txtKarmiPiiri.Text = System.Convert.ToString(karmiPerimeter); // Set value to textbox
+
+                karmiArea = BusinessLogicWindow.CalculatePerimeterArea(width, height, karmi); // Calculate perimeter
+                txtKarmiPintaAla.Text = System.Convert.ToString(karmiArea); // Set value to textbox
             }
             catch (Exception ex)
             {
