@@ -1,8 +1,8 @@
 ﻿/*
 * Copyright (C) JAMK/IT/Esa Salmikangas
 * This file is part of the IIO11300 course project.
-* Created: 12.1.2016 Modified: 13.1.2016
-* Authors: Olli Opilas ,Esa Salmikangas
+* Created: 12.1.2016 Modified: 17.1.2016
+* Authors: Mikko Pakkanen ,Esa Salmikangas
 */
 using System;
 using System.Collections.Generic;
