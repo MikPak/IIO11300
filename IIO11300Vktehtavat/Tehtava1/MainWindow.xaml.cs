@@ -61,6 +61,28 @@ namespace Tehtava1
             }
         }
 
+        private void btnCalculateAreaOO_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //lasketaan pinta-ala Ikkuna-olion avulla
+                //luodaan luokasta olio
+                JAMK.IT.IIO11300.Ikkuna ikk = new JAMK.IT.IIO11300.Ikkuna();
+                ikk.Korkeus = double.Parse(txtHeight.Text);
+                ikk.Leveys = double.Parse(txtWidht.Text);
+                //tulos käyttäjälle
+                //Vaihtoehto metodilla
+                //MessageBox.Show(ikk.LaskePintaAla().ToString());
+                // Vaihtoehtoinen property
+                MessageBox.Show(ikk.PintaAla.ToString());
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     private void btnClose_Click(object sender, RoutedEventArgs e)
     {
       //käynnissä olevan sovelluksen sulkeminen
