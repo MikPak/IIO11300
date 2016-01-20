@@ -23,6 +23,35 @@ namespace H1MediaPlayer
         public MainWindow()
         {
             InitializeComponent();
+            LoadMediaFile();
+        }
+
+        private void btnPlay_Click(object sender, RoutedEventArgs e)
+        {
+            mediaElement.Play();
+        }
+
+        private void btnPause_Click(object sender, RoutedEventArgs e)
+        {
+            mediaElement.Pause();
+        }
+
+        private void LoadMediaFile()
+        {
+            try
+            {
+                string filu = @"D:\H8699\CoffeeMaker.mp4";
+
+                if (System.IO.File.Exists(filu))
+                {
+                    mediaElement.Source = new Uri(filu);
+                    mediaElement.Play();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
