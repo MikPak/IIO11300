@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tehtava1", "Tehtava1\Tehtav
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H1MediaPlayer", "H1MediaPlayer\H1MediaPlayer.csproj", "{74469E55-5043-4233-99E5-31E9A99C4A6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinLotto", "WinLotto\WinLotto.csproj", "{0F54A39D-672D-4081-81A7-A1074BCD257D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mittausdata", "Mittausdata\Mittausdata.csproj", "{8B8EB271-0FD8-45CA-BE90-2D94B7620089}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{74469E55-5043-4233-99E5-31E9A99C4A6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74469E55-5043-4233-99E5-31E9A99C4A6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74469E55-5043-4233-99E5-31E9A99C4A6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F54A39D-672D-4081-81A7-A1074BCD257D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F54A39D-672D-4081-81A7-A1074BCD257D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F54A39D-672D-4081-81A7-A1074BCD257D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F54A39D-672D-4081-81A7-A1074BCD257D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B8EB271-0FD8-45CA-BE90-2D94B7620089}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B8EB271-0FD8-45CA-BE90-2D94B7620089}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B8EB271-0FD8-45CA-BE90-2D94B7620089}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B8EB271-0FD8-45CA-BE90-2D94B7620089}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
