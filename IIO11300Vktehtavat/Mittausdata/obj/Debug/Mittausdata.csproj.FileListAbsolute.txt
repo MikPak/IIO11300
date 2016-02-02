@@ -12,3 +12,17 @@ D:\H8699\IIO11300\IIO11300\IIO11300Vktehtavat\Mittausdata\obj\Debug\Mittausdata.
 D:\H8699\IIO11300\IIO11300\IIO11300Vktehtavat\Mittausdata\obj\Debug\Mittausdata.csproj.GenerateResource.Cache
 D:\H8699\IIO11300\IIO11300\IIO11300Vktehtavat\Mittausdata\obj\Debug\Mittausdata.exe
 D:\H8699\IIO11300\IIO11300\IIO11300Vktehtavat\Mittausdata\obj\Debug\Mittausdata.pdb
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\Mittausdata\bin\Debug\Mittausdata.exe.config
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\Mittausdata\bin\Debug\Mittausdata.exe
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\Mittausdata\bin\Debug\Mittausdata.pdb
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\Mittausdata\obj\Debug\Mittausdata.csprojResolveAssemblyReference.cache
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\Mittausdata\obj\Debug\MainWindow.g.cs
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\Mittausdata\obj\Debug\App.g.cs
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\Mittausdata\obj\Debug\Mittausdata_MarkupCompile.cache
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\Mittausdata\obj\Debug\Mittausdata_MarkupCompile.lref
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\Mittausdata\obj\Debug\MainWindow.baml
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\Mittausdata\obj\Debug\Mittausdata.g.resources
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\Mittausdata\obj\Debug\Mittausdata.Properties.Resources.resources
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\Mittausdata\obj\Debug\Mittausdata.csproj.GenerateResource.Cache
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\Mittausdata\obj\Debug\Mittausdata.exe
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\Mittausdata\obj\Debug\Mittausdata.pdb

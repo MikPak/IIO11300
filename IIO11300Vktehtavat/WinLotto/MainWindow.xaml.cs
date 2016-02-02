@@ -6,7 +6,9 @@
 */
 
 using System;
+using System.IO;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +21,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
 
 namespace WinLotto
 {
@@ -44,8 +47,8 @@ namespace WinLotto
                     numerot = Lotto.ArvoSuomiLotto(1);
 
                     //tulos käyttäjälle
-                    string separator = ", ";
-                    DrawnNumbers.Text = string.Join(separator, numerot);
+                    string separator = " ";
+                    DrawnNumbers.AppendText(string.Join(separator, numerot) + ";\n");
                 }
                 else if (DropDownMenu.Text == "VikingLotto")
                 {
@@ -58,7 +61,7 @@ namespace WinLotto
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                System.Windows.MessageBox.Show(ex.Message);
             }
         }
 
@@ -77,12 +80,76 @@ namespace WinLotto
 
         }
 
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
 
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.SaveFileDialog savefile = new Microsoft.Win32.SaveFileDialog();
+            savefile.FileName = "Lottorivit";
+            savefile.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+
+            Nullable<bool> result = savefile.ShowDialog();
+            if (result == true)
+            {
+                File.WriteAllText(savefile.FileName, DrawnNumbers.Text); 
+            }
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpenFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog openfile = new Microsoft.Win32.OpenFileDialog();
+            openfile.FileName = "Lottorivit";
+            openfile.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+
+            Nullable<bool> result = openfile.ShowDialog();
+            if (result == true)
+            {
+                string contents = File.ReadAllText(openfile.FileName);
+                DrawnNumbers.Text = contents;
+            }
+        }
+
+        private void checkButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (correctNumbers.Text != "")
+            {
+                Microsoft.Win32.OpenFileDialog openfile = new Microsoft.Win32.OpenFileDialog();
+                openfile.FileName = "Lottorivit";
+                openfile.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+
+                Nullable<bool> result = openfile.ShowDialog();
+                if (result == true)
+                {
+                    string line;
+                    System.IO.StreamReader file = new System.IO.StreamReader(openfile.FileName);
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        int l = line.IndexOf(";");
+                        if (l > 0)
+                        {
+                            /*
+                            for (int i = 0; i < l; i++)
+                            {
+                                string str = line.Substring(i, line.IndexOf(" ")).Trim();
+                                System.Windows.MessageBox.Show(str);
+                            }
+                             */
+                        }
+                    }
+                }
+            }
+        }
+
+        private void correctNumbers_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

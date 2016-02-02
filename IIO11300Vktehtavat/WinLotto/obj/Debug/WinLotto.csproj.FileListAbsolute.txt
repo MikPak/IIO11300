@@ -1,0 +1,11 @@
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\bin\Debug\WinLotto.exe.config
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\bin\Debug\WinLotto.exe
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\bin\Debug\WinLotto.pdb
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\obj\Debug\WinLotto.csprojResolveAssemblyReference.cache
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\obj\Debug\MainWindow.baml
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\obj\Debug\MainWindow.g.cs
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\obj\Debug\App.g.cs
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\obj\Debug\WinLotto_MarkupCompile.cache
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\obj\Debug\WinLotto.g.resources
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\obj\Debug\WinLotto.exe
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\obj\Debug\WinLotto.pdb
