@@ -15,11 +15,11 @@
                             <TextBlock Text="Tänään on: "/>
                             <TextBlock x:Name="txtToday" />
                             <TextBlock Text="Tiedostonimi: " Margin="10,0,0,0"/>
-                            <TextBox x:Name="txtFileName" Text="C:\temp\testi.dat"/>
+                            <TextBox x:Name="txtFileName" Text="D:\roskaa.txt"/>
                             <Button x:Name="btnBrowseFiles" Content="Browse" Margin="10,0,0,0" Click="btnBrowseFiles_Click" />
                             <Button x:Name="btnSaveFile" Content="Save" Margin="10,0,0,0" Click="btnSaveFile_Click" />
-                            <Button x:Name="btnShowFile" Content="Show" Margin="10,0,0,0" Click="btnShowFile_Click" />
-                            <Button x:Name="btnSerialize" Content="Serialisoi" Margin="10,0,0,0" Click="btnSerialize_Click" />
+                            <Button x:Name="btnRead" Content="Read" Margin="10,0,0,0" Click="btnRead_Click" />
+                            <Button x:Name="btnSaveToXML" Content="Save XML" Margin="10,0,0,0" Click="btnSaveToXML_Click" />
                             <Button x:Name="btnDeserialize" Content="Deserialisoi" Margin="10,0,0,0" Click="btnDeserialize_Click" />
 
                         </StackPanel>

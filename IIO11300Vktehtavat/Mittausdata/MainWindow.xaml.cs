@@ -32,10 +32,14 @@ namespace Mittausdata
     [Serializable()]
     public partial class MainWindow : Window
     {
+        // luodaan kokoelma mittaus-olioille
+        List<MittausData> mitatut;
         public MainWindow()
         {
             InitializeComponent();
             IniMyStuff();
+            txtToday.Text = DateTime.Today.ToShortDateString();
+            mitatut = new List<MittausData>();
         }
         private void IniMyStuff()
         {
@@ -47,7 +51,17 @@ namespace Mittausdata
         {
             // Luodaan uusi mittausdata olio ja näytetään se käyttäjälle
             MittausData md = new MittausData(txtClock.Text, txtData.Text);
-            lbData.Items.Add(md);
+            //lbData.Items.Add(md);
+            // Lisätään mittaus-olio kokoelmaan
+            mitatut.Add(md);
+            ApplyChanges();
+        }
+        
+        private void ApplyChanges()
+        {
+            // päivitetään UI vastaamaan kokoelman tietoja
+            lbData.ItemsSource = null;
+            lbData.ItemsSource = mitatut;
         }
 
         private void btnBrowseFiles_Click(object sender, RoutedEventArgs e)
@@ -66,6 +80,17 @@ namespace Mittausdata
 
         private void btnSaveFile_Click(object sender, RoutedEventArgs e)
         {
+            // TODO kutsu BL:n tallennusmetodia
+            try
+            {
+                MittausData.SaveDataToFile(mitatut, txtFileName.Text);
+                MessageBox.Show("Tiedot tallennettu onnistuneesti tiedostoon " + txtFileName.Text);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
@@ -76,6 +101,7 @@ namespace Mittausdata
 
         private void btnSerialize_Click(object sender, RoutedEventArgs e)
         {
+            /*
             try
             {
                 Serialisointi se = new Serialisointi();
@@ -86,11 +112,36 @@ namespace Mittausdata
             {
                 MessageBox.Show("asd");
             }
+            */
         }
 
         private void btnDeserialize_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btnRead_Click(object sender, RoutedEventArgs e)
+        {
+            // Luetaan datat käyttäjän antamasta tiedostosta
+            try
+            {
+                mitatut = null;
+                mitatut = MittausData.ReadDataFromFile(txtFileName.Text);
+                ApplyChanges();
+                MessageBox.Show("Tiedot luettu onnistuneesti tiedostosta " + txtFileName.Text);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void btnSaveToXML_Click(object sender, RoutedEventArgs e)
+        {
+            //serialisoidaan XML:ksi
+            JAMK.IT.IIO11300.Serialisointi.SerialisoiXml(@"D:\testi.xml", mitatut);
         }
     }
 }
