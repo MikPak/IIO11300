@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:H5MoviesXML"
         mc:Ignorable="d"
-        Title="Mikko's Movies Gallery V2" Height="300" Width="300" FontSize="14">
+        Title="Mikko's Movies Gallery V2" Height="500" Width="500" FontSize="14">
     <Window.Resources>
         <DataTemplate x:Key="movieName">
             <StackPanel>
@@ -37,7 +37,9 @@
                 <TextBox Text="{Binding XPath=@Country}" Style="{StaticResource myStyle}" />
                 <TextBlock Text="Katsottu" />
                 <CheckBox IsChecked="{Binding XPath=@Checked}" />
-                <Button x:Name="btnSave" Content="Tallenna muutokset" FontSize="16" />
+                <Button x:Name="btnAddNew" Content="Lisää elokuva" FontSize="16" Click="btnAddNew_Click"/>
+                <Button x:Name="btnDelete" Content="Poista elokuva" FontSize="16" Click="btnDelete_Click"/>
+                <Button x:Name="btnSave" Content="Tallenna muutokset" FontSize="16" Click="btnSave_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>
