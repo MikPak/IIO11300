@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace OudotOliot
 {
@@ -159,6 +161,24 @@ namespace OudotOliot
                 int index = seuraComboBox.Items.IndexOf(pelaaja.Seura);
                 //Console.WriteLine(index);
                 seuraComboBox.SelectedIndex = index;
+            }
+        }
+
+        private void saveToDBBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var dbCon = DBConnection.Instance();
+            dbCon.DatabaseName = "Players";
+            if (dbCon.IsConnect())
+            {
+                MySqlDataReader rdr = null;
+                string query = "SELECT * FROM Players";
+                var cmd = new MySqlCommand(query, dbCon.Connection);
+                rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Console.WriteLine(rdr.GetInt32(0) + ": "
+                        + rdr.GetString(1) + rdr.GetString(2) + rdr.GetString(3) + rdr.GetString(4));
+                }
             }
         }
     }

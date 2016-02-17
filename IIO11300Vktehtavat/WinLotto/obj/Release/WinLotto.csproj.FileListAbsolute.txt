@@ -1,0 +1,10 @@
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\bin\Release\WinLotto.exe.config
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\bin\Release\WinLotto.exe
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\bin\Release\WinLotto.pdb
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\obj\Release\MainWindow.baml
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\obj\Release\MainWindow.g.cs
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\obj\Release\App.g.cs
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\obj\Release\WinLotto_MarkupCompile.cache
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\obj\Release\WinLotto.g.resources
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\obj\Release\WinLotto.exe
+D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\WinLotto\obj\Release\WinLotto.pdb
