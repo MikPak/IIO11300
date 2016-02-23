@@ -1,0 +1,18 @@
+﻿<Window x:Class="XMLViinikellari.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="XMLViinikellari" Height="350" Width="525">
+    <Grid Margin="0,0,-174,-71">
+        <DataGrid x:Name="dgWines" ItemsSource="{Binding Path=Elements[wine]}"
+                  AutoGenerateColumns="False" Margin="10,34,209.4,116.8">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Maisteltu viini" Binding="{Binding Path=Element[nimi].Value}"/>
+                <DataGridTextColumn Header="Pisteet" Binding="{Binding Path=Element[arvio].Value}"/>
+                <DataGridTextColumn Header="Valmistettu" Binding="{Binding Path=Element[maa].Value}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Hae viinit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <ComboBox x:Name="maatComboBox" HorizontalAlignment="Left" Margin="90,7,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged"/>
+    </Grid>
+</Window>
