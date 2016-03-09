@@ -1,0 +1,6 @@
+D:\H8699\IIO11300\IIO11300\IIO11300Vktehtavat\H7ADOConsoleDemo\bin\Debug\H7ADOConsoleDemo.exe.config
+D:\H8699\IIO11300\IIO11300\IIO11300Vktehtavat\H7ADOConsoleDemo\bin\Debug\H7ADOConsoleDemo.exe
+D:\H8699\IIO11300\IIO11300\IIO11300Vktehtavat\H7ADOConsoleDemo\bin\Debug\H7ADOConsoleDemo.pdb
+D:\H8699\IIO11300\IIO11300\IIO11300Vktehtavat\H7ADOConsoleDemo\obj\Debug\H7ADOConsoleDemo.csprojResolveAssemblyReference.cache
+D:\H8699\IIO11300\IIO11300\IIO11300Vktehtavat\H7ADOConsoleDemo\obj\Debug\H7ADOConsoleDemo.exe
+D:\H8699\IIO11300\IIO11300\IIO11300Vktehtavat\H7ADOConsoleDemo\obj\Debug\H7ADOConsoleDemo.pdb

@@ -21,6 +21,7 @@ namespace DataBindingX3
     public partial class PlayerWindow : Window
     {
         ObservableCollection<HockeyPlayer> pelaajat;
+        int laskuri;
         public PlayerWindow()
         {
             InitializeComponent();
@@ -29,10 +30,32 @@ namespace DataBindingX3
         private void IniMyStuff()
         {
             pelaajat = Get3TestPlayers();
+            dgPlayers.ItemsSource = pelaajat;
+            laskuri = 0;
+            SetData();
+        }
+        private void SetData()
+        {
+            myGrid.DataContext = pelaajat[laskuri];
         }
         private ObservableCollection<HockeyPlayer> Get3TestPlayers()
         {
+            ObservableCollection<HockeyPlayer> temp = new ObservableCollection<HockeyPlayer>();
+            temp.Add(new HockeyPlayer("Teemu Selänne", "8"));
+            temp.Add(new HockeyPlayer("Jarkko Immonen", "28"));
+            temp.Add(new HockeyPlayer("Ville Immonen", "16"));
 
+            return temp;
+        }
+
+        private void dgPlayers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if((dgPlayers.SelectedIndex >= 0) 
+                & (dgPlayers.SelectedIndex <= pelaajat.Count -1))
+            {
+                laskuri = dgPlayers.SelectedIndex;
+                SetData();
+            }
         }
     }
 }

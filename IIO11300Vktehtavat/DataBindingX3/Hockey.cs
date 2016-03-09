@@ -17,6 +17,7 @@ namespace DataBindingX3
             {
                 name = value;
                 Notify("Name");
+                Notify("NameAndNumber");
             }
             get
             {
@@ -28,8 +29,9 @@ namespace DataBindingX3
             get { return number; }
             set
             {
-                Number = value;
+                number = value;
                 Notify("Number");
+                Notify("NameAndNumber");
             }
         }
         public string NameAndNumber

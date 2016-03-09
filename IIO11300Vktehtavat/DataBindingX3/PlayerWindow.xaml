@@ -6,16 +6,23 @@
         xmlns:local="clr-namespace:DataBindingX3"
         mc:Ignorable="d"
         Title="PlayerWindow" Height="300" Width="500">
-    <Grid>
+    <Grid x:Name="myGrid">
         <StackPanel Orientation="Horizontal">
             <StackPanel Width="250">
                 <!-- Paneelissa esitetäään yksittäisen pelaajan tiedot -->
                 <TextBlock>Pelaaja#nro</TextBlock>
-                <TextBlock x:Name="tbName" Foreground="Blue" />
+                <TextBlock x:Name="tbName" Text="{Binding Path=NameAndNumber, Mode=OneWay}" Background="Aquamarine" Foreground="Blue"></TextBlock>
+                <TextBlock>Nimi</TextBlock>
+                <TextBox x:Name="txtName" Text="{Binding Path=Name, Mode=TwoWay}" />
+                <TextBlock>Numero</TextBlock>
+                <TextBox x:Name="txtNumber" Text="{Binding Path=Number, Mode=TwoWay}" />
             </StackPanel>
             <StackPanel>
                 <!-- Gridi kaikille pelaajille -->
                 <TextBlock>Pelaajat</TextBlock>
+                <DataGrid x:Name="dgPlayers" SelectionChanged="dgPlayers_SelectionChanged" >
+                    
+                </DataGrid>
                 <TextBox></TextBox>
             </StackPanel>
         </StackPanel>

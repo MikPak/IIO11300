@@ -62,5 +62,11 @@ namespace DataBindingX3
             clicked--;
             MyGrid.DataContext = joukkueet[clicked];
         }
+
+        private void btnAsd_Click(object sender, RoutedEventArgs e)
+        {
+            PlayerWindow win = new PlayerWindow();
+            win.ShowDialog();
+        }
     }
 }
