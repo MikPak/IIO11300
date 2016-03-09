@@ -1,11 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataBindingX3
 {
+    public class HockeyPlayer : INotifyPropertyChanged
+    {
+        private string name;
+        private string number;
+        public string Name
+        {
+            set
+            {
+                name = value;
+            }
+            get
+            {
+                return name;
+            }
+        }
+        public string Number
+        {
+            get { return number; }
+            set { Number = value; }
+        }
+
+        //constructors
+        public HockeyPlayer()
+        {
+
+        }
+        public HockeyPlayer(string name, string number)
+        {
+            this.name = name;
+            this.number = number;
+        }
+        //methods
+        public override string ToString()
+        {
+            return name + "#" + number;
+        }
+        //INotifyPropertyChanged Members
+        public event PropertyChangedEventHandler PropertyChanged;
+    }
     public class HockeyTeam
     {
         #region PROPERTIES
