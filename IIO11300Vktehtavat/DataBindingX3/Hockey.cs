@@ -16,6 +16,7 @@ namespace DataBindingX3
             set
             {
                 name = value;
+                Notify("Name");
             }
             get
             {
@@ -25,7 +26,15 @@ namespace DataBindingX3
         public string Number
         {
             get { return number; }
-            set { Number = value; }
+            set
+            {
+                Number = value;
+                Notify("Number");
+            }
+        }
+        public string NameAndNumber
+        {
+            get { return name + "#" + number; }
         }
 
         //constructors
@@ -45,6 +54,14 @@ namespace DataBindingX3
         }
         //INotifyPropertyChanged Members
         public event PropertyChangedEventHandler PropertyChanged;
+        
+        void Notify(string propname)
+        {
+            if(PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propname));
+            }
+        }
     }
     public class HockeyTeam
     {

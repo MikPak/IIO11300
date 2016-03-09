@@ -29,3 +29,5 @@ D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\DataBindin
 D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\DataBindingX3\obj\Debug\DataBindingX3.exe
 D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\DataBindingX3\obj\Debug\DataBindingX3.pdb
 >>>>>>> c44cd8063face557a73da2cef981e9d880d6c133
+D:\H8699\IIO11300\IIO11300\IIO11300Vktehtavat\DataBindingX3\obj\Debug\PlayerWindow.g.cs
+D:\H8699\IIO11300\IIO11300\IIO11300Vktehtavat\DataBindingX3\obj\Debug\PlayerWindow.baml

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,19 @@ namespace DataBindingX3
     /// </summary>
     public partial class PlayerWindow : Window
     {
+        ObservableCollection<HockeyPlayer> pelaajat;
         public PlayerWindow()
         {
             InitializeComponent();
+            IniMyStuff();
+        }
+        private void IniMyStuff()
+        {
+            pelaajat = Get3TestPlayers();
+        }
+        private ObservableCollection<HockeyPlayer> Get3TestPlayers()
+        {
+
         }
     }
 }

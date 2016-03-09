@@ -13,6 +13,3 @@ D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\XMLViinike
 D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\XMLViinikellari\obj\Debug\Viinit.baml
 D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\XMLViinikellari\obj\Debug\Viinit.g.cs
 D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\XMLViinikellari\obj\Debug\XMLViinikellari.csprojResolveAssemblyReference.cache
-D:\H8699\IIO11300\IIO11300\IIO11300Vktehtavat\XMLViinikellari\bin\Debug\XMLViinikellari.exe.config
-D:\H8699\IIO11300\IIO11300\IIO11300Vktehtavat\XMLViinikellari\obj\Debug\XMLViinikellari.exe
-D:\H8699\IIO11300\IIO11300\IIO11300Vktehtavat\XMLViinikellari\obj\Debug\XMLViinikellari.pdb
