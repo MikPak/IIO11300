@@ -22,11 +22,35 @@ namespace ViiniAsiakkaat
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<string> cities;
+        DataView dv;
+        DataTable dt;
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        private void IniMyStuff()
+        {
+            cities = new List<string>();
+            /*
+            cities.Add("Jyväskylä");
+            cities.Add("Helsinki");
+            cities.Add("New York");
+            cbCities.ItemsSource = cities;
+            */
+            string kaupunki = "";
+            foreach(DataRow item in dt.Rows)
+            {
+                kaupunki = item[3].ToString();
+                if(!cities.Contains(kaupunki))
+                {
+                    cities.Add(kaupunki);
+                }
+                cbCities.ItemsSource = cities;
+            }
+
+        }
 
         private void haeAsiakkaatBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -39,12 +63,12 @@ namespace ViiniAsiakkaat
                     string sql = "SELECT * FROM vCustomers";
                     //MessageBox.Show(sql);
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);
-                    DataTable dt = new DataTable("ViiniAsiakkaat");
+                    dt = new DataTable();
+                    dv = dt.DefaultView;
                     da.Fill(dt);
                     myGrid.DataContext = dt;
-                    myGrid.Columns[2].Visibility = Visibility.Hidden;
-                    myGrid.Columns[3].Visibility = Visibility.Hidden;
-                    myGrid.Columns[1].Visibility = Visibility.Hidden;
+                    myGrid.DisplayMemberPath = "Lastname";
+                    IniMyStuff();
                     conn.Close();
                 }
             }
@@ -56,17 +80,23 @@ namespace ViiniAsiakkaat
 
         private void myGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
             DataRowView drv = (DataRowView)myGrid.SelectedItem;
-            String etunimi = (drv["firstname"]).ToString();
-            String sukunimi = (drv["lastname"]).ToString();
-            String osoite = (drv["address"]).ToString();
-            String kaupunki = (drv["city"]).ToString();
-            etunimiContentLabel.Content = etunimi;
-            sukunimiContentLabel.Content = sukunimi;
-            osoiteContentLabel.Content = osoite;
-            kaupunkiContentLabel.Content = kaupunki;
+            if (drv != null)
+            {
+                String etunimi = (drv["firstname"]).ToString();
+                String sukunimi = (drv["lastname"]).ToString();
+                String osoite = (drv["address"]).ToString();
+                String kaupunki = (drv["city"]).ToString();
+                etunimiContentLabel.Content = etunimi;
+                sukunimiContentLabel.Content = sukunimi;
+                osoiteContentLabel.Content = osoite;
+                kaupunkiContentLabel.Content = kaupunki;
+            }
+        }
 
+        private void cbCities_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            dv.RowFilter = string.Format("City LIKE '{0}'", cbCities.SelectedValue);
         }
     }
 }

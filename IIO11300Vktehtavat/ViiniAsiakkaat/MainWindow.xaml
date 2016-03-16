@@ -8,21 +8,22 @@
         Title="ViiniAsiakkaat" Height="350" Width="525">
     <Grid>
         <StackPanel Orientation="Horizontal">
-            <ScrollViewer>
-                <StackPanel Orientation="Vertical">
-                    <Button x:Name="haeAsiakkaatBtn" Content="Hae asiakkaat" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158" Click="haeAsiakkaatBtn_Click"/>
-                    <DataGrid x:Name="myGrid" ItemsSource="{Binding}" GridLinesVisibility="None" SelectionChanged="myGrid_SelectionChanged"/>
-                </StackPanel>
-            </ScrollViewer>
-        </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Button x:Name="haeAsiakkaatBtn" Content="Hae asiakkaat" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158" Click="haeAsiakkaatBtn_Click"/>
+                <ComboBox x:Name="cbCities" ItemsSource="{Binding}" SelectionChanged="cbCities_SelectionChanged" />
+                <ListBox x:Name="myGrid" Height="250" ItemsSource="{Binding}" SelectionChanged="myGrid_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+            </StackPanel>
 
-        <Label x:Name="etunimiLabel" Content="Etunimi:" HorizontalAlignment="Left" Margin="173,14,0,0" VerticalAlignment="Top" Width="174" Height="28"/>
-        <Label x:Name="sukunimiLabel" Content="Sukunimi:" HorizontalAlignment="Left" Margin="173,78,0,0" VerticalAlignment="Top" Width="174"/>
-        <Label x:Name="osoiteLabel" Content="Osoite:" HorizontalAlignment="Left" Margin="173,140,0,0" VerticalAlignment="Top" Width="174"/>
-        <Label x:Name="kaupunkiLabel" Content="Kaupunki:" HorizontalAlignment="Left" Margin="173,202,0,0" VerticalAlignment="Top" Width="174" Height="28"/>
-        <Label x:Name="etunimiContentLabel" Content="" HorizontalAlignment="Left" Margin="173,47,0,0" VerticalAlignment="Top" Width="174"/>
-        <Label x:Name="sukunimiContentLabel" Content="" HorizontalAlignment="Left" Margin="173,109,0,0" VerticalAlignment="Top" Width="174"/>
-        <Label x:Name="osoiteContentLabel" Content="" HorizontalAlignment="Left" Margin="173,171,0,0" VerticalAlignment="Top" Width="174"/>
-        <Label x:Name="kaupunkiContentLabel" Content="" HorizontalAlignment="Left" Margin="173,235,0,0" VerticalAlignment="Top" Width="174" Height="29"/>
+            <StackPanel Orientation="Vertical">
+                <Label x:Name="etunimiLabel" Content="Etunimi:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="174" Height="28"/>
+                    <Label x:Name="etunimiContentLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="174"/>
+                <Label x:Name="sukunimiLabel" Content="Sukunimi:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="174"/>
+                    <Label x:Name="sukunimiContentLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="174"/>
+                <Label x:Name="osoiteLabel" Content="Osoite:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="174"/>
+                    <Label x:Name="osoiteContentLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="174"/>
+                <Label x:Name="kaupunkiLabel" Content="Kaupunki:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="174" Height="28"/>
+                    <Label x:Name="kaupunkiContentLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="174" Height="29"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
