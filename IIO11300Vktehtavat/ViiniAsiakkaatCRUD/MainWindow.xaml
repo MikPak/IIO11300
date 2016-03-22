@@ -1,0 +1,24 @@
+﻿<Window x:Class="ViiniAsiakkaatCRUD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ViiniAsiakkaatCRUD"
+        mc:Ignorable="d"
+        Title="ViiniAsiakkaatCRUD" Height="350" Width="625">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Button x:Name="haeAsiakkaatButton" Content="Hae asiakkaat" HorizontalAlignment="Stretch" Height="29" VerticalAlignment="Top" Click="haeAsiakkaatButton_Click"/>
+                <Button x:Name="teeUusiButton" Content="Tee uusi" HorizontalAlignment="Stretch" Height="29" VerticalAlignment="Top" Click="teeUusiButton_Click"/>
+                    <StackPanel x:Name="teeUusiHolder" Orientation="Horizontal"></StackPanel>
+                <Button x:Name="poistaValittuButton" Content="Poista valittu" HorizontalAlignment="Stretch" Height="29" VerticalAlignment="Top" Click="poistaValittuButton_Click"/>
+                <Button x:Name="tallennaMuutoksetButton" Content="Tallenna muutokset" HorizontalAlignment="Stretch" Height="29" VerticalAlignment="Top" Click="tallennaMuutoksetButton_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                <DataGrid x:Name="myDataGrid" ItemsSource="{Binding}" Height="300">
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
