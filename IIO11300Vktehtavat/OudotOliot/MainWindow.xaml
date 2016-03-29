@@ -15,9 +15,25 @@
         <Button x:Name="talletaPelaajaBtn" Content="Talleta pelaaja" HorizontalAlignment="Left" Height="33" Margin="230,48,0,0" VerticalAlignment="Top" Width="135" Click="talletaPelaajaBtn_Click"/>
         <Button x:Name="poistaPelaajaBtn" Content="Poista pelaaja" HorizontalAlignment="Left" Height="33" Margin="230,86,0,0" VerticalAlignment="Top" Width="135" Click="poistaPelaajaBtn_Click"/>
         <Button x:Name="kirjoitaPelaajatBtn" Content="Kirjoita pelaajat" HorizontalAlignment="Left" Height="33" Margin="230,124,0,0" VerticalAlignment="Top" Width="135" Click="kirjoitaPelaajatBtn_Click"/>
-        <Button x:Name="lopetusBtn" Content="Lopetus" HorizontalAlignment="Left" Height="33" Margin="230,200,0,0" VerticalAlignment="Top" Width="135" Click="lopetusBtn_Click"/>
-        <ListBox x:Name="pelaajatListBox" HorizontalAlignment="Left" Height="185" Margin="370,10,0,0" VerticalAlignment="Top" Width="229" SelectionChanged="pelaajatListBox_SelectionChanged" PreviewMouseDoubleClick="pelaajatListBox_PreviewMouseDoubleClick"/>
+        <Button x:Name="lopetusBtn" Content="Lopetus" HorizontalAlignment="Left" Height="33" Margin="230,237,0,0" VerticalAlignment="Top" Width="135" Click="lopetusBtn_Click"/>
+        <ListBox x:Name="pelaajatListBox" HorizontalAlignment="Left" Height="185" Margin="370,10,0,0" VerticalAlignment="Top" Width="229" SelectionChanged="pelaajatListBox_SelectionChanged" PreviewMouseDoubleClick="pelaajatListBox_PreviewMouseDoubleClick">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0} {1}, {2}">
+                            <Binding Path="Etunimi"/>
+                            <Binding Path="Sukunimi"/>
+                            <Binding Path="Seura"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+        </ListBox>
         <StatusBar x:Name="statusBar1" HorizontalAlignment="Left" Height="36" Margin="10,275,0,0" VerticalAlignment="Top" Width="355"/>
-        <Button x:Name="saveToDBBtn" Content="Hae tietokannasta" HorizontalAlignment="Left" Height="33" Margin="230,162,0,0" VerticalAlignment="Top" Width="135" Click="saveToDBBtn_Click"/>
+        <Button x:Name="fetchFromDBBtn" Content="Hae tietokannasta" HorizontalAlignment="Left" Height="33" Margin="230,162,0,0" VerticalAlignment="Top" Width="135" Click="fetchFromDBBtn_Click"/>
+        <Button x:Name="saveToDBBtn" Content="Tallenna tietokantaan" HorizontalAlignment="Left" Height="33" Margin="230,199,0,0" VerticalAlignment="Top" Width="135" Click="saveToDBBtn_Click"/>
+
     </Grid>
 </Window>

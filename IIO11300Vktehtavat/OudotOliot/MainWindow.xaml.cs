@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -25,54 +19,51 @@ namespace OudotOliot
     public partial class MainWindow : Window
     {
         List<Pelaaja> pelaajatList = new List<Pelaaja>();
+        string constring = OudotOliot.Properties.Settings.Default.Tietokanta;
 
         public MainWindow()
         {
             InitializeComponent();
-            this.seuraComboBox.Items.Add("Blues");
-            this.seuraComboBox.Items.Add("HIFK");
-            this.seuraComboBox.Items.Add("HPK");
-            this.seuraComboBox.Items.Add("Ilves");
-            this.seuraComboBox.Items.Add("JYP");
-            this.seuraComboBox.Items.Add("KalPa");
-            this.seuraComboBox.Items.Add("KooKoo");
-            this.seuraComboBox.Items.Add("Kärpät");
-            this.seuraComboBox.Items.Add("Lukko");
-            this.seuraComboBox.Items.Add("Pelicans");
-            this.seuraComboBox.Items.Add("SaiPa");
-            this.seuraComboBox.Items.Add("Sport");
-            this.seuraComboBox.Items.Add("Tappara");
-            this.seuraComboBox.Items.Add("TPS");
-            this.seuraComboBox.Items.Add("Ässät");
+            iniMyStuff();
+            initializeListBox();
         }
 
+        /* Luo uuden pelaajan ja tallettaa ListBoxiin sekä tietokantaan */
         private void luoPelaajaBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(etunimiTxtBox.Text != "" && sukunimiTxtBox.Text != "" && siirtohintaTxtBox.Text != ""
+            if (etunimiTxtBox.Text != "" && sukunimiTxtBox.Text != "" && siirtohintaTxtBox.Text != ""
                 && seuraComboBox.SelectedItem != null)
             {
                 try
                 {
-                    Pelaaja pelaaja = new Pelaaja(etunimiTxtBox.Text, sukunimiTxtBox.Text, 
-                       seuraComboBox.SelectedItem.ToString(), siirtohintaTxtBox.Text);
-
-                    //Console.WriteLine(pelaajatList.Count);
-                    if (!pelaajatList.Any(x => x.Etunimi == pelaaja.Etunimi && x.Sukunimi == pelaaja.Sukunimi))
+                    int latestID = getLatestID();
+                    if (latestID != 0)
                     {
-                        pelaajatListBox.Items.Add(pelaaja);
-                        pelaajatList.Add(pelaaja);
+                        Pelaaja pelaaja = new Pelaaja(latestID.ToString(), etunimiTxtBox.Text, sukunimiTxtBox.Text,
+                           seuraComboBox.SelectedItem.ToString(), siirtohintaTxtBox.Text);
 
-                        //statusBar1.Text = "asd";
-                        /*
-                        System.Windows.pelaajatListBox.DisplayMember = "UserName";
-                        pelaajatListBox.ValueMember = "UserId";
-
-                        pelaajatListBox.Items.Add(new YourItem
+                        //Console.WriteLine(pelaajatList.Count);
+                        if (!pelaajatList.Any(x => x.Etunimi == pelaaja.Etunimi && x.Sukunimi == pelaaja.Sukunimi))
                         {
-                            UserName = "FooName",
-                            UserId = "FooId"
-                        });
-                         */
+                            pelaajatListBox.Items.Add(pelaaja);
+                            pelaajatList.Add(pelaaja);
+                            using (MySqlConnection conDataBase = new MySqlConnection(constring))
+                            {
+                                try
+                                {
+                                    conDataBase.Open();
+                                    string query = @"INSERT INTO Players(Etunimi,Sukunimi,Seura,siirtohinta) values('"+pelaaja.Etunimi+"','"+pelaaja.Sukunimi+"','"+pelaaja.Seura+"','"+pelaaja.Siirtohinta+"');";
+                                    MySqlCommand cmd = new MySqlCommand(query, conDataBase);
+                                    MySqlDataReader myReader = cmd.ExecuteReader();
+                                    MessageBox.Show("Inserted to Database");
+                                    conDataBase.Close();
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message);
+                                }
+                            }
+                        }
                     }
                 }
                 catch (Exception)
@@ -100,15 +91,25 @@ namespace OudotOliot
             {
                 Pelaaja pelaaja = (Pelaaja)pelaajatListBox.SelectedItem;
 
-                // Remove from List
-                int index = pelaajatList.FindIndex(a => a.Etunimi == pelaaja.Etunimi && a.Sukunimi == pelaaja.Sukunimi);
-                pelaajatList.RemoveAt(index);
-                Console.WriteLine(pelaajatList.Count);
-
-                // Reset pointer
-                pelaaja = null;
                 // Remove item from ListBox
                 pelaajatListBox.Items.Remove(pelaajatListBox.SelectedItem);
+
+                using (MySqlConnection conDataBase = new MySqlConnection(constring))
+                {
+                    try
+                    {
+                        conDataBase.Open();
+                        string query = "DELETE FROM Players WHERE Id='" + pelaaja.Id + "';";
+                        MySqlCommand cmd = new MySqlCommand(query, conDataBase);
+                        MySqlDataReader myReader = cmd.ExecuteReader();
+                        MessageBox.Show("Deleted from Database");
+                        conDataBase.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
 
                 // Reset text inputs
                 etunimiTxtBox.Text = "";
@@ -164,20 +165,108 @@ namespace OudotOliot
             }
         }
 
+        private void iniMyStuff()
+        {
+            this.seuraComboBox.Items.Add("Blues");
+            this.seuraComboBox.Items.Add("HIFK");
+            this.seuraComboBox.Items.Add("HPK");
+            this.seuraComboBox.Items.Add("Ilves");
+            this.seuraComboBox.Items.Add("JYP");
+            this.seuraComboBox.Items.Add("KalPa");
+            this.seuraComboBox.Items.Add("KooKoo");
+            this.seuraComboBox.Items.Add("Kärpät");
+            this.seuraComboBox.Items.Add("Lukko");
+            this.seuraComboBox.Items.Add("Pelicans");
+            this.seuraComboBox.Items.Add("SaiPa");
+            this.seuraComboBox.Items.Add("Sport");
+            this.seuraComboBox.Items.Add("Tappara");
+            this.seuraComboBox.Items.Add("TPS");
+            this.seuraComboBox.Items.Add("Ässät");
+        }
+
+        private void initializeListBox()
+        {
+            pelaajatListBox.Items.Clear();
+            string Query = "Select * FROM Players";
+            using (MySqlConnection conDataBase = new MySqlConnection(constring))
+            using (MySqlCommand cmdDataBase = new MySqlCommand(Query, conDataBase))
+            {
+                try
+                {
+                    conDataBase.Open();
+                    using (MySqlDataReader myReader = cmdDataBase.ExecuteReader())
+                    {
+                        while (myReader.Read())
+                        {
+                            string id = myReader["Id"].ToString();
+                            string etunimi = myReader["Etunimi"].ToString();
+                            string sukunimi = myReader["Sukunimi"].ToString();
+                            string seura = myReader["Seura"].ToString();
+                            string siirtohinta = myReader["Siirtohinta"].ToString();
+                            Pelaaja pelaaja = new Pelaaja(id, etunimi, sukunimi, seura, siirtohinta);
+                            pelaajatListBox.Items.Add(pelaaja);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void fetchFromDBBtn_Click(object sender, RoutedEventArgs e)
+        {
+            initializeListBox();
+        }
+
+        /* Saves listbox to database */
         private void saveToDBBtn_Click(object sender, RoutedEventArgs e)
         {
-            var dbCon = DBConnection.Instance();
-            dbCon.DatabaseName = "Players";
-            if (dbCon.IsConnect())
+            getLatestID();
+            using (MySqlConnection conDataBase = new MySqlConnection(constring))
             {
-                MySqlDataReader rdr = null;
-                string query = "SELECT * FROM Players";
-                var cmd = new MySqlCommand(query, dbCon.Connection);
-                rdr = cmd.ExecuteReader();
-                while (rdr.Read())
+                try
                 {
-                    Console.WriteLine(rdr.GetInt32(0) + ": "
-                        + rdr.GetString(1) + rdr.GetString(2) + rdr.GetString(3) + rdr.GetString(4));
+                    foreach (Pelaaja pelaaja in pelaajatListBox.Items)
+                    {
+                        conDataBase.Open();
+                        string query = @"UPDATE Players SET Etunimi='"+pelaaja.Etunimi+"', Sukunimi='"+pelaaja.Sukunimi+"', Seura='"+pelaaja.Seura+"', siirtohinta='"+pelaaja.Siirtohinta+"' WHERE Id ='"+pelaaja.Id+"'";
+                        MySqlCommand cmd = new MySqlCommand(query, conDataBase);
+                        MySqlDataReader myReader = cmd.ExecuteReader();
+                        MessageBox.Show("Data Updated");
+                        conDataBase.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        /* Palauttaa viimeisimmän ID:n tietokannasta */
+        private int getLatestID()
+        {
+            string Query = "Select MAX(Id) as Id FROM Players";
+            using (MySqlConnection conDataBase = new MySqlConnection(constring))
+            using (MySqlCommand cmdDataBase = new MySqlCommand(Query, conDataBase))
+            {
+                try
+                {
+                    conDataBase.Open();
+                    using (MySqlDataReader myReader = cmdDataBase.ExecuteReader())
+                    {
+                        myReader.Read();
+                        string id = myReader["Id"].ToString();
+                        //MessageBox.Show(id);
+                        return Int32.Parse(id);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return 0;
                 }
             }
         }

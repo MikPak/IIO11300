@@ -10,7 +10,13 @@ namespace OudotOliot
 {
     public class Pelaaja
     {
-        private string etunimi, sukunimi, kokonimi, esitysnimi, seura, siirtohinta;
+        private string id, etunimi, sukunimi, kokonimi, esitysnimi, seura, siirtohinta;
+
+        public string Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
         public string Etunimi
         {
@@ -48,8 +54,9 @@ namespace OudotOliot
         {
 
         }
-        public Pelaaja(string etunimi, string sukunimi, string seura, string siirtohinta)
+        public Pelaaja(string id, string etunimi, string sukunimi, string seura, string siirtohinta)
         {
+            this.id = id;
             this.etunimi = etunimi;
             this.sukunimi = sukunimi;
             this.kokonimi = etunimi + " " + sukunimi;
