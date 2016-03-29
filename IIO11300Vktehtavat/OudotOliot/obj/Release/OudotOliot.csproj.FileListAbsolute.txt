@@ -1,3 +1,0 @@
-D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\OudotOliot\bin\Release\OudotOliot.exe
-D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\OudotOliot\obj\Release\OudotOliot.pdb
-D:\Dokumentit\koodaus\windows_ohjelmointi\IIO11300\IIO11300Vktehtavat\OudotOliot\bin\Release\MySql.Data.dll
