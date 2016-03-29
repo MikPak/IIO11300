@@ -38,7 +38,7 @@ namespace ViiniAsiakkaatCRUD
                 using (SqlConnection conn =
                   new SqlConnection(ViiniAsiakkaatCRUD.Properties.Settings.Default.Tietokanta))
                 {
-                    string sql = "SELECT * FROM customer";
+                    string sql = "SELECT * FROM Pelaajat";
                     //MessageBox.Show(sql);
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);
                     dt = new DataTable();
